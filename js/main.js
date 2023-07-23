@@ -30,9 +30,18 @@ var Quotes=[
     },
 ]
 //Math.trunc(Math.random()*7+1)
+
+var currentIndex=0;
+
 function getQuotes()
 {
-    var randomIndex=Math.trunc(Math.random()*6);
+    var randomIndex=Math.trunc(Math.random()*Quotes.length);
+    while(randomIndex==currentIndex)
+    {
+        randomIndex=Math.trunc(Math.random()*Quotes.length);
+    }
+    currentIndex=randomIndex;
+
     document.getElementById("theQuote").innerHTML=Quotes[randomIndex].quote;
     document.getElementById("theAuthor").innerHTML=Quotes[randomIndex].author;
 }
